@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix 🔴</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #netflix-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 10vw;
+            color: #e50914;
+            letter-spacing: 5px;
+            position: absolute;
+            opacity: 0;
+        }
+
+        #netflix-n {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 15vw;
+            color: #e50914;
+            letter-spacing: 5px;
+            position: absolute;
+            opacity: 1;
+            animation: zoomIn 1.5s ease-out forwards, split 1.5s 2s ease-out forwards;
+        }
+
+        .streak {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #e50914;
+            top: 50%;
+            left: 0;
+            transform: scaleX(0);
+            opacity: 0.8;
+            animation: streak 1.5s ease-out forwards;
+        }
+
+        #footer {
+            font-family: 'Arial', sans-serif;
+            color: gold; /* Changed to gold color */
+            font-size: 2vw;
+            margin-top: 20px; /* Adjust spacing from the logo */
+            opacity: 0;
+            animation: fadeIn 1s 4.5s ease-out forwards;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes split {
+            0% { letter-spacing: 5px; }
+            100% { letter-spacing: 50px; opacity: 0; }
+        }
+
+        @keyframes streak {
+            0% { transform: scaleX(0); opacity: 0.8; }
+            50% { transform: scaleX(1); opacity: 0.8; }
+            100% { transform: scaleX(0); opacity: 0; }
+        }
+
+        @keyframes revealNetflix {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="netflix-n"><b>N</b></div>
+        <div id="netflix-logo"><b>NETFLIX</b></div>
+        <div class="streak" style="top: 45%; animation-delay: 1.5s;"></div>
+        <div class="streak" style="top: 50%; animation-delay: 1.7s;"></div>
+        <div class="streak" style="top: 55%; animation-delay: 1.9s;"></div>
+        <br><br><br><br><br><br>
+        <div id="footer">Designed & Developed by 💝 Hemant Katta ⚔️</div>
+    </div>
+
+    <script>
+        // Animation to reveal full "NETFLIX" after the "N" splits
+        setTimeout(() => {
+            document.getElementById('netflix-logo').style.animation = "revealNetflix 1s ease-out forwards";
+        }, 3500);
+
+        // Optional: Sync with a sound effect
+        const sound = new Audio('path-to-sound.mp3');
+        sound.play();
+    </script>
+</body>
+</html>
